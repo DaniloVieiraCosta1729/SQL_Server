@@ -8,7 +8,7 @@ SELECT Name, Weight FROM Production.Product WHERE Weight > 500 AND Weight <= 700
 Além do pedido da produção, foi pedido pelo o marketing uma lista que contenha os trabalhadores que são assalariados e, ao mesmo tempo, casados.
 */
 
-SELECT BusinessEntityID, JobTitle, MartialStatus, SalariedFlag FROM HumanResources.Employee WHERE MartialStatus = 'M' AND SalariedFlag = 1;
+SELECT BusinessEntityID, JobTitle, MaritalStatus, SalariedFlag FROM HumanResources.Employee WHERE MaritalStatus = 'M' AND SalariedFlag = 1;
 
 /*Outra forma de resolver - uma melhor - é pesquisando em multiplas tabelas. Isso nos permitirá mostrar uma tabela que reuna o nome, o BusinessEntityID e os status solicitados.*/
 
