@@ -38,6 +38,9 @@ SELECT Color, AVG(ListPrice) AS "Média de preços" FROM Production.Product WHER
 
 /*Desafio - Quantas pessoas têm o mesmo nome do meio?*/
 
+SELECT MiddleName, COUNT(MiddleName) AS 'Quantidade' FROM Person.Person GROUP BY MiddleName ORDER BY Quantidade DESC;
+
+/* Total Unidades vendidas de cada produto.*/
 SELECT Production.Product.ProductID, Production.Product.Name, SUM(Sales.SalesOrderDetail.OrderQty) AS 'TotalUnidVendidas' 
 FROM Sales.SalesOrderDetail, Production.Product 
 WHERE Production.Product.ProductID = Sales.SalesOrderDetail.ProductID
