@@ -40,9 +40,17 @@ SELECT Color, AVG(ListPrice) AS "Média de preços" FROM Production.Product WHER
 
 SELECT MiddleName, COUNT(MiddleName) AS 'Quantidade' FROM Person.Person GROUP BY MiddleName ORDER BY Quantidade DESC;
 
-/* Total Unidades vendidas de cada produto.*/
+/* Total Unidades vendidas de cada produto. */
 SELECT Production.Product.ProductID, Production.Product.Name, SUM(Sales.SalesOrderDetail.OrderQty) AS 'TotalUnidVendidas' 
 FROM Sales.SalesOrderDetail, Production.Product 
 WHERE Production.Product.ProductID = Sales.SalesOrderDetail.ProductID
 GROUP BY Production.Product.ProductID, Production.Product.Name ORDER BY TotalUnidVendidas DESC;
+
+/*Selecione os dez produtos que proporcionaram as melhores vendas.*/
+
+SELECT TOP 10 Production.Product.Name, Sales.SalesOrderDetail.ProductID, SUM(Sales.SalesOrderDetail.LineTotal) AS "TOTAL" 
+FROM Sales.SalesOrderDetail, Production.Product
+WHERE Sales.SalesOrderDetail.ProductID = Production.Product.ProductID
+GROUP BY Production.Product.Name, Sales.SalesOrderDetail.ProductID, Sales.SalesOrderDetail.LineTotal
+ORDER BY Sales.SalesOrderDetail.LineTotal DESC;
 
