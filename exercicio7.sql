@@ -11,4 +11,3 @@ SELECT MAX(LineTotal) FROM SalesOrderDetail WHERE SalesOrderDetailID BETWEEN 1 A
 /*AVG*/
 
 SELECT AVG(LineTotal) FROM SalesOrderDetail WHERE SalesOrderDetailID BETWEEN 1 AND 10; /*Average, ou seja, é a média.*/
-
